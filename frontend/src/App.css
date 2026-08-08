@@ -1,0 +1,145 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
+  background: #f5f6f8;
+  color: #1a1a1a;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-header {
+  background: #1a2b4a;
+  color: white;
+  padding: 16px 24px;
+}
+
+.app-header h1 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+}
+
+.app-nav {
+  display: flex;
+  gap: 16px;
+}
+
+.app-nav a {
+  color: #b8c4dd;
+  text-decoration: none;
+  font-size: 14px;
+  padding-bottom: 4px;
+}
+
+.app-nav a.active {
+  color: white;
+  border-bottom: 2px solid #4d8ef7;
+}
+
+.app-main {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  margin-bottom: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #555;
+}
+
+tr:hover td {
+  background: #f9fbff;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.filter-bar select, .filter-bar input {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.filter-bar label {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn {
+  background: #1a2b4a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn:hover { background: #24365e; }
+
+.btn-secondary {
+  background: white;
+  color: #1a2b4a;
+  border: 1px solid #ccc;
+}
+
+.score-positive { color: #1a8a4a; font-weight: 600; }
+.score-negative { color: #c23b3b; }
+
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.status-SUCCESS { background: #e3f5e9; color: #1a8a4a; }
+.status-FAILED { background: #fbe6e6; color: #c23b3b; }
+.status-RUNNING { background: #eef2fb; color: #3a5bbf; }
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #3a5bbf;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+
+.empty-state {
+  text-align: center;
+  color: #888;
+  padding: 40px 0;
+}

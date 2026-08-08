@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/price_compare?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      # 개발 초기에는 update, 운영 전환 시 validate 또는 none + 마이그레이션 도구(Flyway 등) 권장
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+# 외부 API 키 - 실제 값은 환경변수나 별도 profile(application-local.yml)로 분리 권장
+# 현재는 발급 전이라 placeholder로 비워둡니다.
+external-api:
+  domeggook:
+    base-url: https://domeggook.com/ssl/api/
+    api-key: ${DOMEGGOOK_API_KEY:PLACEHOLDER_DOMEGGOOK_KEY}
+  naver:
+    base-url: https://openapi.naver.com/v1/search/shop.json
+    client-id: ${NAVER_CLIENT_ID:PLACEHOLDER_NAVER_CLIENT_ID}
+    client-secret: ${NAVER_CLIENT_SECRET:PLACEHOLDER_NAVER_CLIENT_SECRET}
+
+# CORS 허용 (React 개발 서버)
+cors:
+  allowed-origins: http://localhost:5173
+
+# 경쟁력 스코어 계산 설정
+# score = (네이버최저가 - (도매가+배송비+수수료+목표마진)) / 네이버최저가
+scoring:
+  commission-rate: 0.10    # 판매 수수료율 (네이버 최저가 기준 10% 가정)
+  target-margin: 5000      # 목표마진 (원 단위 고정값, 필요시 상품별로 조정 가능하도록 추후 확장)
+
+# 도매꾹 호출 제한(분당 180회) 대응을 위한 배치 호출 간격(ms)
+batch:
+  domeggook-call-interval-ms: 400
+  naver-call-interval-ms: 100
+
