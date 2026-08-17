@@ -40,6 +40,9 @@ dependencies {
     // Excel export (추후 필요시 사용)
     implementation 'org.apache.poi:poi-ooxml:5.2.5'
 
+    // 네이버쇼핑 HTML 크롤링용
+    implementation 'org.jsoup:jsoup:1.18.1'
+
     // Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
